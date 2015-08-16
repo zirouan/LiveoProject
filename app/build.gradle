@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+def VersionAnnotations = '3.3.1'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "23.0.0 rc3"
+
+    defaultConfig {
+        applicationId "br.com.liveo.app"
+        minSdkVersion 14
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    apt {
+        arguments {
+            resourcePackageName "br.com.liveo.app"
+            androidManifestFile variant.outputs[0].processResources.manifestFile
+        }
+    }
+
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res',
+                    'src/main/res/layouts/activity',
+                    'src/main/res/layouts/fragment',
+                    'src/main/res/layouts/toolbar'
+            ]
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    //Library downloads imagem
+    compile 'com.github.bumptech.glide:glide:3.6.0'
+
+    //Library Google
+    compile 'com.android.support:design:22.2.1'
+    compile 'com.android.support:cardview-v7:22.2.1'
+    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:recyclerview-v7:22.2.1'
+
+    //Library animations
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile 'com.daimajia.easing:library:1.0.1@aar'
+    compile 'com.daimajia.androidanimations:library:1.1.3@aar'
+
+    //Library annotations {optional}
+    //If not using annotations, please remove this line of build.gradle project file
+    //classpath 'com.neenbedankt.gradle.plugins:android-apt:1.7'
+    apt "org.androidannotations:androidannotations:$VersionAnnotations"
+    compile "org.androidannotations:androidannotations-api:$VersionAnnotations"
+}

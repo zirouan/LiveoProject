@@ -1,0 +1,20 @@
+<resources>
+
+    <style name="Theme.nLiveo" parent="AppTheme">
+    </style>
+
+    <!--Customize here the subject of your application-->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:textColorPrimary">@color/primaryText</item>
+        <item name="android:textColorSecondary">@color/secundaryText</item>
+
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="actionModeBackground">@color/colorActionModePrimary</item>
+    </style>
+</resources>

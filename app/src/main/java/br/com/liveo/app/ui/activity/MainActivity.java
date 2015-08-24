@@ -6,26 +6,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import org.androidannotations.annotations.AfterViews;
-import org.androidannotations.annotations.EActivity;
-import org.androidannotations.annotations.ViewById;
-
 import br.com.liveo.app.R;
 import br.com.liveo.app.ui.base.BaseActivity;
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
-@EActivity(R.layout.activity_main)
 public class MainActivity extends BaseActivity {
 
-    @ViewById(R.id.toolbar)
-    Toolbar mToolbar;
+    @Bind(R.id.toolbar) Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-    @AfterViews
-    public void init() {
         setSupportActionBar(mToolbar);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

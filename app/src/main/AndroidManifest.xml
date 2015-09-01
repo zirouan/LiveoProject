@@ -3,6 +3,7 @@
     package="br.com.liveo.app" >
 
     <application
+        android:fullBackupContent="true"
         android:name=".AppLiveo"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
